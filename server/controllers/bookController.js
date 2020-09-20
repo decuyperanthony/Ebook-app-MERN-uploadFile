@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const livreModel = require('../models/livres');
 const auteurModel = require('../models/author');
 const authorModel = require('../models/author');
+const fs = require('fs');
 
 const bookController = {
 
@@ -98,6 +99,17 @@ const bookController = {
     deleteBook: (req, res) => {
         let bookId = req.params.id;
         console.log('bookId', bookId);
+        //*  == on recupère le livre
+        //* == on souhaite le champ image
+        const book = livreModel.findById(bookId)
+            .select("image")
+            .exec()
+            .then((book) => {
+                fs.unlink(`./public/images/${book.image}`, error => {
+                    console.log('error in fs unlink', error)
+                })
+            })
+
         livreModel.remove({_id: bookId})
         .exec()
         .then(result => {
@@ -117,6 +129,7 @@ const bookController = {
             let message = 'l\'id n\'est pas correct';
             res.status(500).send(message);
         })
+
     }
 }
 
