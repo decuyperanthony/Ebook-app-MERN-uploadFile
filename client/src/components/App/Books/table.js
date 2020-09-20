@@ -51,9 +51,9 @@ const BooksTable = () => {
         <td>{book.nom}</td>
         <td>{book.description}</td>
         <td>{book.nbrePage}</td>
-        {/* <td>{book.auteur.nom} {book.auteur.prenom}</td> */}
-        <td>auteur test</td>
-        <td><img alt="book" src={`${API_URL}/images/${book.image}`} /></td>
+        <td>{book.auteur.nom} {book.auteur.prenom}</td>
+        {/* <td>auteur test</td> */}
+        <td><img style={{ height: '6em', width: 'auto' }} alt="book" src={`${API_URL}/images/${book.image}`} /></td>
         <td style={{
           // display: 'flex',
           // flexDirection: 'column',
