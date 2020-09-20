@@ -41,7 +41,7 @@ const bookController = require('../controllers/bookController');
 router.get('/livres', bookController.getAllBooks);
 router.get('/livre/:id', bookController.getOneBook);
 router.post('/livre', upload.single("image"), bookController.addBook);
-router.patch('/livre/:id', bookController.updateBook);
+router.patch('/livre/:id', upload.single("image"), bookController.updateBook);
 router.delete('/livre/:id', bookController.deleteBook);
 
 module.exports = router;

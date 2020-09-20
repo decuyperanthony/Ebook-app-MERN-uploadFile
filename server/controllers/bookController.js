@@ -79,6 +79,7 @@ const bookController = {
         let bookId = req.params.id;
         console.log('bookId', bookId);
         console.log('req.body', req.body);
+        req.body.image = req.file.path.substring(14);
         // faire la verif si l'auteur existe
         // const allAuthors = authorModel.find({})
         livreModel.updateOne({_id: bookId}, req.body)

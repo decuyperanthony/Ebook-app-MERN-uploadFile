@@ -19,7 +19,12 @@ import { authorsState } from '../atoms/authors';
 import { API_URL } from '../../../utils/constante';
 
 
-const ModalUpdatedBook = () => {
+const ModalUpdatedBook = ({ book }) => {
+  console.log('book', book);
+  const {
+    _id, nom, description, nbrePage, image, auteur,
+  } = book;
+
   // == -------- STATE DE LA MODAL ---------
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -32,33 +37,33 @@ const ModalUpdatedBook = () => {
   //  form
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data2) => {
+  const onSubmit = (data) => {
     // console.log(data);
     // console.log('hello');
-    console.log('data', data2);
+    console.log('data', data);
     //!  ------------ Multer ------------
     const formdata = new FormData();
 
-    formdata.append('image', data2.image[0]);
-    formdata.append('auteur', data2.auteur);
-    formdata.append('description', data2.description);
-    formdata.append('nbrePage', data2.nbrePage);
-    formdata.append('nom', data2.nom);
+    formdata.append('image', data.image[0]);
+    formdata.append('auteur', data.auteur);
+    formdata.append('description', data.description);
+    formdata.append('nbrePage', data.nbrePage);
+    formdata.append('nom', data.nom);
     //! à décommenter
-    // fetch(`${API_URL}/livre`, {
-    //   method: 'POST',
-    //   body: formdata,
-    // }).then((resAddBooks) => {
-    //   console.log('resAddBooks', resAddBooks);
-    //   axios
-    //     .get(`${API_URL}/livres`)
-    //     .then((res) => {
-    //       console.log('res.data ====>', res.data);
-    //       // const articles = res.data;
-    //       setBooks(res.data);
-    //     })
-    //     .catch((error) => console.trace(error));
-    // }).catch((error) => console.trace(error));
+    fetch(`${API_URL}/livre/${_id}`, {
+      method: 'PATCH',
+      body: formdata,
+    }).then((resAddBooks) => {
+      console.log('resAddBooks', resAddBooks);
+      axios
+        .get(`${API_URL}/livres`)
+        .then((res) => {
+          console.log('res.data ====>', res.data);
+          // const articles = res.data;
+          setBooks(res.data);
+        })
+        .catch((error) => console.trace(error));
+    }).catch((error) => console.trace(error));
   };
   console.log('error react hook form', errors);
 
@@ -98,17 +103,18 @@ const ModalUpdatedBook = () => {
           <Modal.Title>Modifier le livre</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
+          <div>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div>
-                <input type="text" placeholder="Titre" name="nom" ref={register({ required: true, maxLength: 100 })} />
+                <input type="text" defaultValue={nom} placeholder="Titre" name="nom" ref={register({ required: true, maxLength: 100 })} />
               </div>
               <div>
-                <input type="text" placeholder="Description" name="description" ref={register({ required: true, maxLength: 200 })} />
+                <input type="text" defaultValue={description} placeholder="Description" name="description" ref={register({ required: true, maxLength: 200 })} />
               </div>
               <div>
                 <input
                   type="number"
+                  defaultValue={nbrePage}
                   placeholder="Nombre de Pages"
                   name="nbrePage"
                   ref={register({
@@ -119,6 +125,7 @@ const ModalUpdatedBook = () => {
               </div>
               <div>
                 <input
+                  // defaultValue={image}
                   type="file"
                   placeholder="image"
                   name="image"
@@ -129,7 +136,7 @@ const ModalUpdatedBook = () => {
                 />
               </div>
               <div>
-                <select name="auteur" ref={register({ required: true })}>
+                <select defaultValue={auteur._id} name="auteur" ref={register({ required: true })}>
                   <option value="">choose...</option>
                   {selectAuthors}
                 </select>
@@ -137,15 +144,15 @@ const ModalUpdatedBook = () => {
               <div>
                 <input type="submit" name="addBook2" />
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Fermer
           </Button>
           <Button type="submit" variant="primary">Valider</Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     </>
   );
