@@ -1,4 +1,7 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
+
+import PropTypes from 'prop-types';
 
 // == react hook form
 import { useForm } from 'react-hook-form';
@@ -22,7 +25,7 @@ import { API_URL } from '../../../utils/constante';
 const ModalUpdatedBook = ({ book }) => {
   console.log('book', book);
   const {
-    _id, nom, description, nbrePage, image, auteur,
+    _id, nom, description, nbrePage, auteur,
   } = book;
 
   // == -------- STATE DE LA MODAL ---------
@@ -156,6 +159,16 @@ const ModalUpdatedBook = ({ book }) => {
       </Modal>
     </>
   );
+};
+
+ModalUpdatedBook.propTypes = {
+  book: PropTypes.shape({
+    _id: PropTypes.number,
+    nom: PropTypes.string,
+    description: PropTypes.string,
+    nbrePage: PropTypes.number,
+    auteur: PropTypes.string,
+  }).isRequired,
 };
 
 export default ModalUpdatedBook;
