@@ -26,18 +26,9 @@ import { API_URL } from '../../../utils/constante';
 
 // == COMPONENT
 const Formulaire = () => {
-  // == recoil
-  // const [books, setBooks] = useRecoilState(booksState);
-
   const [authors, setAuthors] = useRecoilState(authorsState);
   const setBooks = useSetRecoilState(booksState);
 
-  // console.log('books ====> ', books);
-
-  // useEffect(() => {
-  // }, []);
-  // const [authors, setAuthors] = useState('');
-  // const [dataBook, setDataBook] = useState('');
 
   //  form
   const { register, handleSubmit, errors } = useForm();
