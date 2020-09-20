@@ -14,7 +14,8 @@ const storage = multer.diskStorage({
     //* puis le nom du fichier
     filename : (requete, file, cb)=> {
         var date = new Date().toLocaleDateString();
-        cb(null, date+"-"+Math.round(Math.random() * 10000)+"-"+file.originalname)
+        // cb(null, date+"-"+Math.round(Math.random() * 10000)+"-"+file.originalname)
+        cb(null, date+"-"+Math.round(Math.random() * 10000)+"-"+file.originalname.replace(/\s/g, '-'))
     }
   });
 
