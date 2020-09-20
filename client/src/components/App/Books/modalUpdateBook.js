@@ -135,7 +135,7 @@ const ModalUpdatedBook = () => {
                 </select>
               </div>
               <div>
-                <input type="submit" name="addBook" />
+                <input type="submit" name="addBook2" />
               </div>
             </div>
           </form>
