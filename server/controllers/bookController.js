@@ -63,7 +63,9 @@ const bookController = {
             pages: req.body.pages,
             description: req.body.description,
             nbrePage: req.body.nbrePage,
-            image : req.file.path.substring(14)
+            // image : req.file.path.substring(14)
+            //* test pour remove les espaces des fichiers upload
+            image : req.file.path.substring(14).replace(/\s/g, '-')
             // image: req.body.image
         });
         livre.save()
