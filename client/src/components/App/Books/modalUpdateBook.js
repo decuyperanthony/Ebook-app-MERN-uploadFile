@@ -14,7 +14,7 @@ import {
   useSetRecoilState,
 } from 'recoil';
 import {
-  Button, Modal,
+  Modal,
 } from 'react-bootstrap';
 import { booksState } from '../atoms/books';
 import { authorsState } from '../atoms/authors';
@@ -23,7 +23,6 @@ import { API_URL } from '../../../utils/constante';
 
 
 const ModalUpdatedBook = ({ book }) => {
-  console.log('book', book);
   const {
     _id, nom, description, nbrePage, auteur,
   } = book;
@@ -41,9 +40,6 @@ const ModalUpdatedBook = ({ book }) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
-    // console.log(data);
-    // console.log('hello');
-    console.log('data', data);
     //!  ------------ Multer ------------
     const formdata = new FormData();
 
@@ -61,8 +57,6 @@ const ModalUpdatedBook = ({ book }) => {
       axios
         .get(`${API_URL}/livres`)
         .then((res) => {
-          console.log('res.data ====>', res.data);
-          // const articles = res.data;
           setBooks(res.data);
         })
         .catch((error) => console.trace(error));

@@ -5,6 +5,7 @@ const storage = multer.diskStorage({
     //* on indique l'endroit ou on stock la photo
     destination: (requete, file, cb) => {
       cb(null, './public/images')
+      // cb(null, './public/images')
     },
     //* puis le nom du fichier
     filename: (requete, file, cb) => {

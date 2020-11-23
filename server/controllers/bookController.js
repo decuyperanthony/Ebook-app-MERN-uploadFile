@@ -39,13 +39,10 @@ const bookController = {
         })
     },
     addBook: (req, res) => {
-        // je recup le body
-        let dataBook = req.body;
-        console.log('req.body ==================>', req.body)
-        console.log('req.file', req.file)
-        // console.log('dataBook', dataBook.formdata);
-        // console.log('req.body.image', req.body.image)
-        // on check si le livre existe
+        // nous recuperons le body
+        console.log('req.body =========>', req.body)
+
+        // nous regardons si le livre existe
         livreModel.findOne({
             nom: req.body.nom
         }, (err, result) => {
@@ -54,19 +51,16 @@ const bookController = {
                 res.status(500).send('le titre de ce livre existe deja');
             }
         });
-        // console.log('checkLivre', checkLivre)
+
         const livre = new livreModel({
-            // _id: new mongoose.Types.objectId(),
             _id: new mongoose.Types.ObjectId(),
             nom: req.body.nom,
             auteur: req.body.auteur,
             pages: req.body.pages,
             description: req.body.description,
             nbrePage: req.body.nbrePage,
-            // image : req.file.path.substring(14)
             //* test pour remove les espaces des fichiers upload
             image : req.file.path.substring(14).replace(/\s/g, '-')
-            // image: req.body.image
         });
         livre.save()
         .then(resultat => {
