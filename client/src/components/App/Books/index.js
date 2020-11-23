@@ -3,6 +3,7 @@ import React from 'react';
 
 // == Import style
 import './styles.scss';
+import './form.scss';
 // import {
 //   Table, Form, Col, Button,
 // } from 'react-bootstrap'

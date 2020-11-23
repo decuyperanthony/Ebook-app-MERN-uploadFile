@@ -112,7 +112,7 @@ const BooksTable = () => {
   );
 
   return (
-    <>{tableJSX}</>
+    <div className="bloc-table">{tableJSX}</div>
   );
 };
 

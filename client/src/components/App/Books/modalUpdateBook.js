@@ -92,9 +92,12 @@ const ModalUpdatedBook = ({ book }) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <div
+        className="button-danger"
+        onClick={handleShow}
+      >
         Modifier
-      </Button>
+      </div>
 
       <Modal
         show={show}
@@ -150,12 +153,6 @@ const ModalUpdatedBook = ({ book }) => {
             </form>
           </div>
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Fermer
-          </Button>
-          <Button type="submit" variant="primary">Valider</Button>
-        </Modal.Footer> */}
       </Modal>
     </>
   );

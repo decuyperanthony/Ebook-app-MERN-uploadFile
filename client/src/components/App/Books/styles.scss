@@ -1,0 +1,18 @@
+.books {
+    display: flex;
+    align-items: baseline;
+}
+
+.bloc-table {
+    margin-right: 3em;
+}
+
+@media screen and (max-width: 900px) {
+    .books {
+      flex-direction: column;
+    }
+    .bloc-table {
+      margin-right: 0;
+      margin: 0 0.5em;
+    }
+  }

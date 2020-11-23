@@ -1,0 +1,135 @@
+.inputContainer {
+    margin-bottom: 0.5em;
+
+}
+
+//! === === INPUT TEXT === ===
+
+input[type=text] {
+    padding:5px;
+    border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    border-color:#2A62FF;
+}
+
+//! === === INPUT NUMBER === ===
+
+input[type=number]  {
+    padding:5px;
+    border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=number]:focus {
+    border-color:#2A62FF;
+}
+
+//! === === SELECT === ===
+
+select  {
+    padding:5px;
+    border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+select:focus {
+    border-color:#2A62FF;
+}
+
+//! === === INPUT SUBMIT === ===
+
+input[type=submit] {
+    padding:5px 15px;
+    // background: #2A62FF;
+    background: white;
+    color: #2A62FF;
+    // border:0 none;
+    border: 1px solid #2A62FF;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+input[type=submit]:hover {
+    padding:5px 15px;
+    background: #EAF0FF;
+    color: #2A62FF;
+    border: 1px solid #2A62FF;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+input[type=submit]:focus {
+    padding:5px 15px;
+    background: #EAF0FF;
+    color: #2A62FF;
+    border: 1px solid #2A62FF;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+
+
+//! === === BUTTON DANGER === ===
+
+.button-danger {
+    padding:5px 15px;
+    background: white;
+    color: #9A0009;
+    border: 1px solid #9A0009;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    &:focus {
+        color: white;
+        background: #9A0009
+        // box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+    }
+    &:hover {
+        color: white;
+        background: #9A0009
+    }
+}
+//! === === INPUT FILE === ===
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    // background-color: #007BFF;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #EAF0FF;
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+label {
+    display: flex;
+    padding: 2px 12px 8px 12px;
+}
+
+.books {
+    display: flex;
+}

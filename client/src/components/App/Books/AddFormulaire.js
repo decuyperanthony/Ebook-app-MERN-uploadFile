@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 
@@ -123,13 +124,13 @@ const Formulaire = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className="inputContainer">
           <input type="text" placeholder="Titre" name="nom" ref={register({ required: true, maxLength: 100 })} />
         </div>
-        <div>
+        <div className="inputContainer">
           <input type="text" placeholder="Description" name="description" ref={register({ required: true, maxLength: 200 })} />
         </div>
-        <div>
+        <div className="inputContainer">
           <input
             type="number"
             placeholder="Nombre de Pages"
@@ -145,13 +146,21 @@ const Formulaire = () => {
             type="file"
             placeholder="image"
             name="image"
+            id="file"
             ref={register({
               required: true,
             // pattern: /^\S+@\S+$/i,
             })}
+            className="inputfile"
           />
+          <label htmlFor="file">
+            <img
+              alt="camera"
+              src="https://img.icons8.com/dusk/64/000000/add-image.png"
+            />
+          </label>
         </div>
-        <div>
+        <div className="inputContainer">
           <select name="auteur" ref={register({ required: true })}>
             <option value="">choose...</option>
             {selectAuthors}
