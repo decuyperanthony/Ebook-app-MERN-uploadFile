@@ -103,6 +103,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Anthony de Cuyper - [linkedin](https://www.linkedin.com/in/anthony-de-cuyper/) - decuyperanthony@gmail.com
 
-Project Link: [https://github.com/decuyperanthony/Ebook-app-MERN-uploadFile](https://github.com/decuyperanthony/star-wars)
+Project Link: [https://github.com/decuyperanthony/Ebook-app-MERN-uploadFile](https://github.com/decuyperanthony/Ebook-app-MERN-uploadFile)
 
 
